@@ -1,0 +1,292 @@
+va
+GLOBAL
+var_dump($[0[]0]);
+[>END<]!$[FingerTextData FingerTextData]@#
+ts-
+GLOBAL
+$this->[>END<]!$[FingerTextData FingerTextData]@#
+ss
+GLOBAL
+<script type="text/javascript" src="$[0[]0]" charset="utf-8"></script>[>END<]!$[FingerTextData FingerTextData]@#
+sqq
+GLOBAL
+mysql_query($strSQL)[>END<]!$[FingerTextData FingerTextData]@#
+smvi
+GLOBAL
+$this->smarty->view('$[0[]0].html');[>END<]!$[FingerTextData FingerTextData]@#
+smfore
+GLOBAL
+{{%foreach from=$$[0[]0] key=key item=value%}}
+	
+{{%/foreach%}}[>END<]!$[FingerTextData FingerTextData]@#
+smem
+GLOBAL
+{{%if !empty($$[0[]0])%}}
+{{%/if%}}[>END<]!$[FingerTextData FingerTextData]@#
+smdoc
+GLOBAL
+$smarty.server.DOCUMENT_ROOT[>END<]!$[FingerTextData FingerTextData]@#
+smday
+GLOBAL
+|date_format:'%Y/%m/%d %H:%I:%S'[>END<]!$[FingerTextData FingerTextData]@#
+smcon
+GLOBAL
+$smarty.const.[>END<]!$[FingerTextData FingerTextData]@#
+smcat
+GLOBAL
+|cat:''[>END<]!$[FingerTextData FingerTextData]@#
+smas
+GLOBAL
+$this->smarty->assign('$[0[]0]',);[>END<]!$[FingerTextData FingerTextData]@#
+sm
+GLOBAL
+{{%$$[0[]0]%}}[>END<]!$[FingerTextData FingerTextData]@#
+rq
+GLOBAL
+$_REQUEST['$[0[]0]'][>END<]!$[FingerTextData FingerTextData]@#
+reast_set
+GLOBAL
+		<script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.1/react.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.1/react-with-addons.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.1/JSXTransformer.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+		<script type="text/babel" charset="utf-8">
+			
+		</script>[>END<]!$[FingerTextData FingerTextData]@#
+r
+GLOBAL
+->[>END<]!$[FingerTextData FingerTextData]@#
+php_now
+GLOBAL
+date('Y-m-d H:i:s')[>END<]!$[FingerTextData FingerTextData]@#
+p
+GLOBAL
+print_r($$[0[]0]);[>END<]!$[FingerTextData FingerTextData]@#
+lsq
+GLOBAL
+echo $strSQL;[>END<]!$[FingerTextData FingerTextData]@#
+lpr
+GLOBAL
+echo "<!--";
+print_r($$[0[]0]);
+echo "-->";[>END<]!$[FingerTextData FingerTextData]@#
+lc
+GLOBAL
+echo "<!--{$[0[]0]}-->";[>END<]!$[FingerTextData FingerTextData]@#
+l
+GLOBAL
+echo 'xxxxxxxxxxxxxxxxxxxxxxxx';[>END<]!$[FingerTextData FingerTextData]@#
+jsg
+GLOBAL
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>[>END<]!$[FingerTextData FingerTextData]@#
+jqonc
+GLOBAL
+.on('click',function(){
+	$[0[]0]
+});[>END<]!$[FingerTextData FingerTextData]@#
+jqfun
+GLOBAL
+$(function(){
+  $[0[]0]
+});[>END<]!$[FingerTextData FingerTextData]@#
+jqajax_ret
+GLOBAL
+$('.change_show').on('change',function(){
+	var method = "changeShowFlg";
+	var datalist = {
+		"form_id"  : $(this).data('id'),
+		"show_flg" : $(this).val()
+	};
+	connectServer(datalist,method).done(function(data){
+		if(!data.status){
+			alert('更新に失敗しました。');
+		}
+	});
+});
+
+$('.delete').on('click',function(){
+	var method = "deleteFormData";
+	var id = $(this).data('id');
+	var datalist = {
+		"form_id"  : id
+	};
+	connectServer(datalist,method).done(function(data){
+		if(data.status){
+			$('#node'+id).remove();
+		}else{
+			alert('更新に失敗しました。');
+		}
+	});
+});
+
+function connectServer(datalist,method)
+{
+	return $.ajax({
+		url: "/manage/feti_form/"+method+"/",
+		type: "POST",
+		data: datalist,
+		dataType: "json",
+		cache: false,
+	}).fail(function(data){
+		window.alert('エラーが発生しました。');
+	});
+}
+[>END<]!$[FingerTextData FingerTextData]@#
+jqajax
+GLOBAL
+$.ajax({
+	
+	//データを変数で設定する場合
+	var area = {
+		"area" : $("select[name='area']").val(),
+		"s_area" : {{%($sacd) ? $sacd : 0%}},
+		"n_area" : {{%($nacd) ? $nacd : 0%}}
+	};
+
+	url: "/manage/setting_extension_shame/get_shop_data/",
+	type: "POST",
+	data: {
+		'shp_no' : shop_id
+	},
+	dataType: "json",
+	cache: false,
+}).done(function(data){
+	if(data.stutas){
+		if(data.shame_use == 1){
+			if(data.exist_extension){
+				$('#shop_name').html("既に登録済みの店舗です。");
+			}else{
+				$('#shop_name').html(data.shp_name);
+				$('#entry').show();
+			}
+		}else{
+			$('#shop_name').html("写メ動画が利用できない店舗です。");
+		}
+	}else{
+		$('#shop_name').html("店舗データが存在しません。");
+	}
+}).fail(function(data){
+	window.alert('エラーが発生しました。');
+});
+[>END<]!$[FingerTextData FingerTextData]@#
+jcon
+GLOBAL
+console.log($[0[]0]);[>END<]!$[FingerTextData FingerTextData]@#
+jc
+GLOBAL
+console.log($[0[]0]);[>END<]!$[FingerTextData FingerTextData]@#
+if
+GLOBAL
+if($[0[]0]){
+	
+}
+[>END<]!$[FingerTextData FingerTextData]@#
+html5
+GLOBAL
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+	</head>
+	<body>
+		
+	</body>
+</html>[>END<]!$[FingerTextData FingerTextData]@#
+hc
+GLOBAL
+<!--
+-->[>END<]!$[FingerTextData FingerTextData]@#
+f
+GLOBAL
+function $[0[]0](){
+	
+}
+[>END<]!$[FingerTextData FingerTextData]@#
+et
+GLOBAL
+<?=$[0[]0]?>[>END<]!$[FingerTextData FingerTextData]@#
+esq
+GLOBAL
+echo $strSQL;[>END<]!$[FingerTextData FingerTextData]@#
+esl
+GLOBAL
+echo $strSQL;[>END<]!$[FingerTextData FingerTextData]@#
+em
+GLOBAL
+empty($[0[]0])[>END<]!$[FingerTextData FingerTextData]@#
+elif
+GLOBAL
+elseif($[0[]0]){
+	
+}
+[>END<]!$[FingerTextData FingerTextData]@#
+el
+GLOBAL
+else{
+	$[0[]0]
+}
+[>END<]!$[FingerTextData FingerTextData]@#
+doc
+GLOBAL
+$_SERVER['DOCUMENT_ROOT'][>END<]!$[FingerTextData FingerTextData]@#
+con
+GLOBAL
+console.log($[0[]0]);[>END<]!$[FingerTextData FingerTextData]@#
+ci_last
+GLOBAL
+$this->db->last_query();[>END<]!$[FingerTextData FingerTextData]@#
+ci_db_update
+GLOBAL
+$datas = array(
+	'edit_date'   => date('Y-m-d H:i:s'),
+	'mail_main'   => $data['mail_main'],
+	'mail_sub'    => $data['mail_sub'],
+	'password'    => $data['password']
+);
+
+$this->db->where('grid', $data['grid']);
+$this->db->update('t_shame_account', $datas);
+return;
+[>END<]!$[FingerTextData FingerTextData]@#
+ci_db_select
+GLOBAL
+$this->db->select('*');	
+$this->db->from('group_link');	     
+$this->db->where('gl_delete_flg !=', 1);
+if($spid && is_numeric($spid)){
+	$this->db->where('gl_shp_no', $spid);
+}
+$this->db->order_by('gl_id', 'ASC');
+$this->db->limit($limit);
+
+$query = $this->db->query($strSQL);
+$query = $this->db->get();
+
+return $query->result_array();
+[>END<]!$[FingerTextData FingerTextData]@#
+ci_db_insert
+GLOBAL
+$data = array(
+	'PSID'     		=> $post_script['PSID'],
+	'PS_POS_TEXT'  	=> $post_script['PS_POS_TEXT'],
+	'REGIST_DATE'	=> date('Y-m-d H:i:s'),
+);
+$this->db->insert('PENDING_POSTSCRIPT', $data);
+
+return $this->db->insert_id();
+[>END<]!$[FingerTextData FingerTextData]@#
+chk-aj
+GLOBAL
+//ajaxリクエストのみ
+if($this->input->is_ajax_request()){
+	$[0[]0]
+}
+[>END<]!$[FingerTextData FingerTextData]@#
+alt
+GLOBAL
+{{%set_image_alt job=$job[i] alt=$job[i]['banner_img_alt']%}}[>END<]!$[FingerTextData FingerTextData]@#
+-
+GLOBAL
+->[>END<]!$[FingerTextData FingerTextData]@#
