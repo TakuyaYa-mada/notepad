@@ -19,6 +19,9 @@ GLOBAL
 {{%foreach from=$$[0[]0] key=key item=value%}}
 	
 {{%/foreach%}}[>END<]!$[FingerTextData FingerTextData]@#
+smesp
+GLOBAL
+|escape:'html':'UTF-8'[>END<]!$[FingerTextData FingerTextData]@#
 smem
 GLOBAL
 {{%if !empty($$[0[]0])%}}
