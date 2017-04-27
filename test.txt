@@ -144,3 +144,5 @@ git の履歴を削除する
 
 >> git filter-branch -f --index-filter 'git rm -rf --ignore-unmatch dirname' HEAD
 
+#　リモートの確認
+git remote -v
